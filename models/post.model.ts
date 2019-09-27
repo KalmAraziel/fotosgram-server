@@ -5,7 +5,7 @@ const postSchena = new Schema({
     created: {
         type: Date
     },
-    mensajes: {
+    mensaje: {
         type: String
     },
     img: [{
