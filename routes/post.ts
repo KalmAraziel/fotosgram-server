@@ -13,7 +13,7 @@ postRoutes.post('/', [verificaToken]  ,(req: any ,res: Response) => {
     body.usuario = req.usuario._id;
     const imagenes  = new FileSystem().imagenesTempHaciaPost(req.usuario._id);
     body.imgs = imagenes;
-    
+
     Post.create(body).then(  async (postBd) =>{
         
         // Llenar usuario por relacion.
@@ -89,6 +89,13 @@ postRoutes.post('/upload', [verificaToken] , async (req: any ,res: Response) => 
         file: file.mimetype,
         mensaje: 'OK'
     });
+});
+
+postRoutes.get('/imagen/:userid/:img',(req: any ,res: Response) => { 
+    const userid = req.params.userid;
+    const img = req.params.img;
+    const pathfoto = new FileSystem().getFotoUrl(userid,img);
+    res.sendFile(pathfoto);
 });
 
 export default postRoutes;
