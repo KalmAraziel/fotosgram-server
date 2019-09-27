@@ -11,7 +11,9 @@ postRoutes.post('/', [verificaToken]  ,(req: any ,res: Response) => {
     const body = req.body;
 
     body.usuario = req.usuario._id;
-
+    const imagenes  = new FileSystem().imagenesTempHaciaPost(req.usuario._id);
+    body.imgs = imagenes;
+    
     Post.create(body).then(  async (postBd) =>{
         
         // Llenar usuario por relacion.
@@ -55,7 +57,7 @@ postRoutes.get('/', async (req: any ,res: Response) => {
 }); 
 
 // Servicio para subir archivos
-postRoutes.post('/upload', [verificaToken] ,async (req: any ,res: Response) => { 
+postRoutes.post('/upload', [verificaToken] , async (req: any ,res: Response) => { 
     // console.log('REQ: ', req.file);
     if (!req.files) { 
         return res.status(400).json({
@@ -79,8 +81,8 @@ postRoutes.post('/upload', [verificaToken] ,async (req: any ,res: Response) => {
         });
     }
     // guardo imagen
-    const fileSystem = new FileSystem();
-    fileSystem.guardarImagenTmp(file, req.usuario._id);
+    const fileSystem = new FileSystem();    
+    await fileSystem.guardarImagenTmp(file, req.usuario._id);
     
     res.json({
         ok: true,
