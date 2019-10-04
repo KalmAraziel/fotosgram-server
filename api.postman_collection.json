@@ -1,0 +1,238 @@
+{
+	"variables": [],
+	"info": {
+		"name": "fotosGram",
+		"_postman_id": "9d657af3-b30f-5523-590c-ae780bec886e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuario: Crear Usuario",
+			"request": {
+				"url": "http://localhost:3001/user/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "marcos",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "marcos.ahumada08@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "##marcos15",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: Login",
+			"request": {
+				"url": "http://localhost:3001/user/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "test@test.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Usuario: Login"
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: Actualizar usuario",
+			"request": {
+				"url": "http://localhost:3001/user/update",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjVkOGNkYjZiM2M3MzdlNGFiYzYyMzZlMSIsIm5vbWJyZSI6Im1hcmNvcyIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImF2YXRhciI6ImF2LTEtcG5nIn0sImlhdCI6MTU2OTUyOTE2OCwiZXhwIjoxNTcyMTIxMTY4fQ.jHGldeNNCCL64Iwhb0BEKy-dSHDSizC8vMaz9g1yXyU",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Juan Perez",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Posts: Crear post",
+			"request": {
+				"url": "http://localhost:3001/posts/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjVkOGNkYjZiM2M3MzdlNGFiYzYyMzZlMSIsIm5vbWJyZSI6Ikp1YW4gUGVyZXoiLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdmF0YXIiOiJhdi0xLXBuZyJ9LCJpYXQiOjE1Njk1OTY4NTAsImV4cCI6MTU3MjE4ODg1MH0.3L1oW7gz1KU_QiXaAPS_5_KMgLdqeKn0OgkOtut45As",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "mensaje",
+							"value": "Hola Mundo 21",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "coords",
+							"value": "14,14",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Posts: Obtener post paginados",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3001/posts?pagina=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "3",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Subir Archivos",
+			"request": {
+				"url": "http://localhost:3001/posts/upload",
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjVkOGNkYjZiM2M3MzdlNGFiYzYyMzZlMSIsIm5vbWJyZSI6Ikp1YW4gUGVyZXoiLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdmF0YXIiOiJhdi0xLXBuZyJ9LCJpYXQiOjE1Njk2MDUzMTAsImV4cCI6MTU3MjE5NzMxMH0.IhN8X-QRQv7iFtmQ12rAYtAGVtIFUSV9PVIgHvPV5bk",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Imagen",
+			"request": {
+				"url": "http://localhost:3001/posts/imagen/5d8cdb6b3c737e4abc6236e1/ebubd940gk12iyyt3.jpegs",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario obtener usuario por token",
+			"request": {
+				"url": "http://localhost:3001/user/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7Il9pZCI6IjVkOGNkYjZiM2M3MzdlNGFiYzYyMzZlMSIsIm5vbWJyZSI6Ikp1YW4gUGVyZXoiLCJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdmF0YXIiOiJhdi0xLXBuZyJ9LCJpYXQiOjE1Njk2MTQ2MjEsImV4cCI6MTU3MjIwNjYyMX0.fWulJMy6ollkdRnLPjtU2lATKNmQzaVG-RuetyVd7AQ",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
