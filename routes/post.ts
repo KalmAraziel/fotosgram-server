@@ -51,7 +51,7 @@ postRoutes.get('/', async (req: any ,res: Response) => {
 
     res.json({
         ok: true,
-        post: postBd
+        posts: postBd
     });
     
 }); 
