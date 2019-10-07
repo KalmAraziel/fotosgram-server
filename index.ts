@@ -5,6 +5,8 @@ import bodyParser from 'body-parser';
 import userRoutes from './routes/usuario';
 import postRoutes from './routes/post';
 import fileUpload from 'express-fileupload';
+import cors from 'cors';
+
 const server = new Server();
 
 // BodyParser procesa las peticiones y prepara objeto
@@ -18,6 +20,11 @@ server.app.use(fileUpload(
         useTempFiles : true
     })
 );
+// Configurar CORS
+server.app.use(cors( {
+    origin: true,
+    credentials: true
+} ));
 
 //Rutas de mi app
 server.app.use('/user', userRoutes);
@@ -26,7 +33,7 @@ server.app.use('/posts', postRoutes);
 // Conectar BD
 mongoose.connect(
     'mongodb://localhost:27017/fotosgram', 
-    { useNewUrlParser: true, useCreateIndex: true },
+    { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true },
     (error) => {
         if (error) {
             throw error;

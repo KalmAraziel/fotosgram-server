@@ -63,11 +63,7 @@ userRoutes.post('/create', (req: Request , res: Response) => {
         res.json({
             ok: true,
             token : tokenUser
-        });
-        
-        
-        
-        
+        });                                
     }).catch((error)=> {
         res.json({
             ok: false,
@@ -102,12 +98,11 @@ userRoutes.put('/update', verificaToken ,(req: any , res: Response) => {
             nombre: userDB.nombre,
             email: userDB.email,
             avatar: userDB.avatar
-
         });
 
         res.json({
             ok: true,
-            usuario: tokenUser
+            token: tokenUser
         });
 
     }).catch(error => {
