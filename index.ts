@@ -28,7 +28,7 @@ server.app.use(cors( {
 
 //Rutas de mi app
 server.app.use('/user', userRoutes);
-server.app.use('/posts', postRoutes);
+server.app.use('/post', postRoutes);
 
 // Conectar BD
 mongoose.connect(
