@@ -14,7 +14,7 @@ export default class  FileSystem {
             const nombreArchivo = this.generarNombreUnico(archivo.name);
 
             // mover archivo temp  a carpeta final
-            archivo.mv(`${ path }/ ${ nombreArchivo }`, (err : any) => {
+            archivo.mv(`${ path }/${ nombreArchivo }`, (err : any) => {
                 if (err) { 
                     reject(err);
                 } else {
@@ -27,7 +27,7 @@ export default class  FileSystem {
 
     private generarNombreUnico(nombreOriginal: string) {
         const nombreArr = nombreOriginal.split('.');
-        const extension = nombreArr[ nombreArr.length - 1 ];
+        const extension = nombreArr[nombreArr.length - 1];
         const idUnico = uniqid();
         return idUnico + '.' + extension;
     }
